@@ -3,6 +3,7 @@ import CardList from '../Components/CardList';
 import SearchBox from '../Components/SearchBox';
 import Scroll from '../Components/Scroll';
 import {robots} from '../Components/robots';
+import ErrorBoundry from '../Components/ErrorBoundry';
 import './App.css';
 
 
@@ -14,14 +15,7 @@ class App extends Component {
             searchfield: '' 
         }
     }
-        /*
-    componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(users => this.setState({robots: users}));
-
-    }
-        */
+      
     onSearchChange = (event) => {
         this.setState({ searchfield: event.target.value })
         
@@ -41,7 +35,9 @@ class App extends Component {
          <h1 className='f1'> Money Heist</h1>
          <SearchBox searchChange={this.onSearchChange} />
          <Scroll> 
+          <ErrorBoundry>
           <CardList robots={filteredRobots} /> 
+          </ErrorBoundry>
          </Scroll>
         </div>
  
