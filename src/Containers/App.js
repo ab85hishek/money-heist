@@ -33,7 +33,7 @@ class App extends Component {
         return robot.username.toLowerCase().includes(this.state.searchfield.toLowerCase());
     } )
     if(this.state.robots.length===0){
-        return <h1>Please Wait...</h1>
+        return <h1>Connecting...</h1>
     }
     else{
     return (
